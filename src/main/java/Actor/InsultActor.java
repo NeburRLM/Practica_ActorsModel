@@ -42,6 +42,7 @@ public class InsultActor extends Actor {
                 case InsultMe m2 -> m2.getSender().send(new ReplyMessage(this, getMessageFromListInsult()));
                 case AddInsultMessage m3 -> addInsultMessage(m3.getMessage());
                 case GetAllInsultsMessage m4 -> m4.getSender().send(new ReplyMessage(this, insultList.toString()));
+                case ReplyMessage ignored -> {}
                 default -> message.getSender().send(new ReplyMessage(this, getMessageFromListInsult()));
             }
         }
